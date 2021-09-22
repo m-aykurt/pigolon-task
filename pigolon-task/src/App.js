@@ -24,11 +24,9 @@ function App() {
   // cards state'ini map edip CardComp'a gönderiyoruz
   return (
     <div className="App">
-      <Button onClick={() => addCard(cards)} color="primary">
-        Start Data Fetch
-      </Button>{" "}
+
       {cards.map((card) => (
-        <CardComp key={card.id} card={card} />
+        <CardComp cards={cards} key={card.id} card={card} />
       ))}
     </div>
   );

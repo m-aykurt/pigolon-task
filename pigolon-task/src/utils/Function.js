@@ -11,10 +11,8 @@ export const addCard = (card) => {
 
 export const useFetch = () => {
   const [cardList, setCardList] = useState([]);
-  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
     const contactRef = firebaseApp.database().ref("cards");
     //firebase'deki dataları fetch ediyoruz
     contactRef.on("value", (snapshot) => {
@@ -25,8 +23,7 @@ export const useFetch = () => {
         firebaseCardsList.push({ id, ...firebaseCards[id] });
       }
       setCardList(firebaseCardsList);
-      setLoading(false);
     });
   }, []);
-  return { cardList, loading };
+  return { cardList };
 };

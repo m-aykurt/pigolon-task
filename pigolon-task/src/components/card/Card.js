@@ -9,19 +9,17 @@ import {
   Button,
 } from "reactstrap";
 import { useFetch } from "../../utils/Function";
+import { addCard } from "../../utils/Function";
 
-const CardComp = () => {
-  const { cardList, loading } = useFetch();
+const CardComp = ({ cards }) => {
+  const { cardList } = useFetch();
 
   return (
     <div>
-      {loading ? (
-        <Card>
-          <CardBody>
-            <h2>Loading...</h2>
-          </CardBody>
-        </Card>
-      ) : cardList?.length === 0 ? (
+      <Button onClick={() => addCard(cards)} color="primary">
+        Start Data Fetch
+      </Button>{" "}
+      {cardList?.length === 0 ? (
         <Card>
           <CardBody>
             <h2>Nothing Found...</h2>
