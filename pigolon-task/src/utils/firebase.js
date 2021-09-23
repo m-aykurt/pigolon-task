@@ -3,12 +3,12 @@ import "firebase/database";
   
   // Initialize Firebase
   const firebaseApp = firebase.initializeApp({
-    apiKey: "AIzaSyD6s5YGgaNMBHFoajA8DSoWgxHpw_jmSTg",
-    authDomain: "pigolon-task.firebaseapp.com",
-    projectId: "pigolon-task",
-    storageBucket: "pigolon-task.appspot.com",
-    messagingSenderId: "689854004467",
-    appId: "1:689854004467:web:0605f643c9c999284dcb86"
+    apiKey: "AIzaSyDRffF_fdZmmDRpwn2yE-ADvpp6CHBT_qo",
+    authDomain: "pigolon-proj.firebaseapp.com",
+    projectId: "pigolon-proj",
+    storageBucket: "pigolon-proj.appspot.com",
+    messagingSenderId: "697374288661",
+    appId: "1:697374288661:web:85ea87ada0763782f3971c"
   });
 
   export default firebaseApp

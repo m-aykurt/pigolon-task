@@ -4,14 +4,15 @@ import axios from "axios";
 import "./App.css";
 import { Button } from "reactstrap";
 import { addCard } from "./utils/Function";
+import { useFetch } from "./utils/Function";
 
 function App() {
   const [cards, setCards] = useState([]);
+  const { cardList } = useFetch();
 
   useEffect(() => {
     myApi();
   }, []);
-  // console.log(cards);
 
   //axios ile api'den bilgi cekildi
   const myApi = async () => {
@@ -21,12 +22,20 @@ function App() {
       .then((response) => setCards(response.data))
       .catch((err) => console.error(err));
   };
-  // cards state'ini map edip CardComp'a gönderiyoruz
+
+  const handlePushFirebase = () => {
+    addCard(cards);
+  };
+
   return (
     <div className="App">
-
-      {cards.map((card) => (
-        <CardComp cards={cards} key={card.id} card={card} />
+      {(cardList.length > 0) ? null : (
+        <Button onClick={handlePushFirebase} color="primary">
+          Start Data Fetch
+        </Button>
+      )}
+      {cardList.map((card) => (
+        <CardComp card={card} key={card.char_id} />
       ))}
     </div>
   );
